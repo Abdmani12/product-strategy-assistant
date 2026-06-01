@@ -5,12 +5,15 @@ Multi-Agent System for Product Managers
 
 import os
 import warnings
-import urllib3
-import streamlit as st
-
-# Suppress SSL warnings from the gateway's self-signed cert
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 warnings.filterwarnings("ignore")
+
+try:
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+except Exception:
+    pass
+
+import streamlit as st
 
 # ── Page config (must be first Streamlit call) ──────────────────────────────
 st.set_page_config(
